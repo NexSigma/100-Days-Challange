@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>100 Days of Code - Algorithms & Engineering Suite</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">⚡</div>
+        <div>
+          <h2>100 Days of Code</h2>
+          <span class="subtext">Algorithms & Utilities</span>
+        </div>
+      </div>
+
+      <div class="streak-card">
+        <div class="streak-header">
+          <span>Current Streak</span>
+          <span class="streak-badge">🔥 5 Days</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" style="width: 5%;"></div>
+        </div>
+        <div class="streak-footer">
+          <span>5 / 100 Days Completed</span>
+          <span>5%</span>
+        </div>
+      </div>
+
+      <nav class="days-nav">
+        <h3>Daily Modules</h3>
+        <ul id="days-list">
+          <li class="day-item active" data-day="day-01-arrays-strings">
+            <span class="day-num">01</span>
+            <div class="day-info">
+              <span class="day-title">Arrays & Strings</span>
+              <span class="day-tag">Two Pointers & Sliding Window</span>
+            </div>
+            <span class="status-icon">✓</span>
+          </li>
+          <li class="day-item" data-day="day-02-linked-lists">
+            <span class="day-num">02</span>
+            <div class="day-info">
+              <span class="day-title">Linked Lists</span>
+              <span class="day-tag">Cycle Detection & Reversal</span>
+            </div>
+            <span class="status-icon">✓</span>
+          </li>
+          <li class="day-item" data-day="day-03-stacks-queues">
+            <span class="day-num">03</span>
+            <div class="day-info">
+              <span class="day-title">Stacks & Queues</span>
+              <span class="day-tag">MinStack & Queue with Stacks</span>
+            </div>
+            <span class="status-icon">✓</span>
+          </li>
+          <li class="day-item" data-day="day-04-trees-binary-search">
+            <span class="day-num">04</span>
+            <div class="day-info">
+              <span class="day-title">Binary Trees</span>
+              <span class="day-tag">BST & Traversals</span>
+            </div>
+            <span class="status-icon">✓</span>
+          </li>
+          <li class="day-item" data-day="day-05-sorting-searching">
+            <span class="day-num">05</span>
+            <div class="day-info">
+              <span class="day-title">Sorting & Searching</span>
+              <span class="day-tag">MergeSort, QuickSort, Binary Search</span>
+            </div>
+            <span class="status-icon">✓</span>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <header class="top-header">
+        <div>
+          <h1 id="selected-day-title">Day 01: Arrays & Strings</h1>
+          <p id="selected-day-desc">Mastering Two Pointers, Sliding Window, and Kadane's Algorithm.</p>
+        </div>
+        <div class="header-actions">
+          <button id="run-all-tests-btn" class="btn btn-primary">🧪 Run All Tests Live</button>
+        </div>
+      </header>
+
+      <!-- Stats Grid -->
+      <section class="metrics-grid">
+        <div class="metric-card">
+          <span class="metric-label">Daily Status</span>
+          <span class="metric-value text-success" id="metric-status">Completed</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Unit Tests</span>
+          <span class="metric-value" id="metric-tests">4 / 4 Passing</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Time Complexity</span>
+          <span class="metric-value text-accent" id="metric-complexity">O(N)</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-label">Space Complexity</span>
+          <span class="metric-value" id="metric-space">O(1) / O(N)</span>
+        </div>
+      </section>
+
+      <!-- Tab View -->
+      <div class="tabs-container">
+        <div class="tab-buttons">
+          <button class="tab-btn active" data-tab="overview">📖 Algorithm Notes</button>
+          <button class="tab-btn" data-tab="test-suite">🧪 Live Test Runner</button>
+          <button class="tab-btn" data-tab="git-guide">🐙 Daily GitHub Commit Guide</button>
+        </div>
+
+        <div class="tab-content" id="tab-overview">
+          <div class="card markdown-body" id="notes-container">
+            <!-- Rendered notes -->
+          </div>
+        </div>
+
+        <div class="tab-content hidden" id="tab-test-suite">
+          <div class="card">
+            <div class="card-header">
+              <h3>Live Browser Test Runner</h3>
+              <button id="run-single-day-tests" class="btn btn-secondary">Run Selected Suite</button>
+            </div>
+            <div class="test-results-log" id="test-log-output">
+              <div class="log-entry">Click "Run Selected Suite" to execute tests live in browser context...</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content hidden" id="tab-git-guide">
+          <div class="card">
+            <h3>🚀 Daily Stats Increaser Workflow</h3>
+            <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">Follow these simple steps every day to make daily commits and increase your GitHub contribution metrics.</p>
+
+            <div class="step-box">
+              <div class="step-num">Step 1</div>
+              <div>
+                <h4>Scaffold New Day</h4>
+                <p>Run in your terminal:</p>
+                <pre><code>node scripts/create-day.js day-06-graph-algorithms</code></pre>
+              </div>
+            </div>
+
+            <div class="step-box">
+              <div class="step-num">Step 2</div>
+              <div>
+                <h4>Write & Test Code</h4>
+                <p>Implement your algorithm in <code>solution.js</code>, add tests in <code>solution.test.js</code>, and run:</p>
+                <pre><code>npm test</code></pre>
+              </div>
+            </div>
+
+            <div class="step-box">
+              <div class="step-num">Step 3</div>
+              <div>
+                <h4>Commit & Push to GitHub</h4>
+                <pre><code>git add .
+git commit -m "feat(day-06): Add Graph BFS/DFS implementations & test suite"
+git push origin main</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
